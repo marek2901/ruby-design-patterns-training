@@ -8,9 +8,7 @@ module Observabl
   end
 
   def notify
-    @observers.each do |obs|
-      obs.call
-    end
+    @observers.each(&:call)
   end
 end
 
@@ -20,7 +18,7 @@ class User
   def initialize
     super
     add_observer do
-      puts "Hello World" 
+      puts 'Hello World'
     end
   end
 end
